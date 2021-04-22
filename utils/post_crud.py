@@ -3,7 +3,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 
 from database.models import Posts
-from schemas.schemas import DeletePostResponse, Post
+from schemas.models import DeletePostResponse, Post, UpdatePost
 
 
 def post_create(db: Session, post: Post):
@@ -22,7 +22,7 @@ def post_get_one(db: Session, id: UUID):
     return db.query(Posts).filter_by(id=id).one()
 
 
-def post_update(db: Session, post: Post):
+def post_update(db: Session, post: UpdatePost):
     update_query = {Posts.title: post.title, Posts.description: post.description}
     db.query(Posts).filter_by(id=post.id).update(update_query)
     db.commit()

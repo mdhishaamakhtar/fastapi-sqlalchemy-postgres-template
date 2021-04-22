@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from routes.posts import router
-from schemas.schemas import HealthResponse
+from schemas.models import HealthResponse
 
 app = FastAPI()
 

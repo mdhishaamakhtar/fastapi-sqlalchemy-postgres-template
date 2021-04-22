@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from database.connection import get_db
-from schemas.schemas import DeletePostResponse, Post
+from schemas.models import DeletePostResponse, Post, UpdatePost
 from utils.post_crud import (
     post_create,
     post_delete,
@@ -45,5 +45,5 @@ def delete_post(id, db: Session = Depends(get_db)):
 
 
 @router.patch("/update", status_code=status.HTTP_200_OK, response_model=Post)
-def update_post(post: Post, db: Session = Depends(get_db)):
+def update_post(post: UpdatePost, db: Session = Depends(get_db)):
     return post_update(db=db, post=post)

@@ -19,3 +19,12 @@ class Post(BaseModel):
 
 class DeletePostResponse(BaseModel):
     detail: str
+
+
+class UpdatePost(BaseModel):
+    id: UUID
+    title: str
+    description: str
+
+    class Config:
+        orm_mode = True
