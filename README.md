@@ -14,6 +14,8 @@
 
 - [x] Database Connection Using SQLAlchemy
 - [x] FastAPI Server
+- [x] Unit Testing with PyTest
+- [x] Basic CRUD for Posts
 
 <br>
 
@@ -50,6 +52,12 @@ source env/bin/activate # for linux and mac
 ```bash
 pip install -r requirements.txt
 ```
+
+- Setting up environment variables
+
+| Key     | Value |
+| ----------- | ----------- |
+| DATABASE_URL   | postgresql://user:password@host:port/db|
 
 - To run the project
 
