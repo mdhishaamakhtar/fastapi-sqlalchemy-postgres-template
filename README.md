@@ -1,19 +1,22 @@
 <p align="center">
-<a href="https://dscvit.com">
-	<img src="https://user-images.githubusercontent.com/30529572/92081025-fabe6f00-edb1-11ea-9169-4a8a61a5dd45.png" alt="DSC VIT"/>
-</a>
-	<h2 align="center"> FastAPI Session </h2>
-	<h4 align="center"> 2CC Session Course API </h4>
+<img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FAST API"/>
+<h2 align="center"> FastAPI Template </h2>
+<h4 align="center"> A template for the beginners </h4>
 
 
 ---
-[![Join Us](https://img.shields.io/badge/Join%20Us-Developer%20Student%20Clubs-red)](https://dsc.community.dev/vellore-institute-of-technology/)
-[![Discord Chat](https://img.shields.io/discord/760928671698649098.svg)](https://discord.gg/498KVdSKWR)
+## About
+This is a beginner's template for getting started with FastAPI.
+It uses SQLAlchemy as the ORM. 
+
+Contributions are welcome. 
 
 ## Features
 
 - [x] Database Connection Using SQLAlchemy
 - [x] FastAPI Server
+- [x] Unit Testing with PyTest
+- [x] Basic CRUD for Posts
 
 <br>
 
@@ -51,6 +54,12 @@ source env/bin/activate # for linux and mac
 pip install -r requirements.txt
 ```
 
+- Setting up environment variables
+
+| Key     | Value |
+| ----------- | ----------- |
+| DATABASE_URL   | postgresql://user:password@host:port/db|
+
 - To run the project
 
 ```bash
@@ -77,7 +86,3 @@ uvicorn main:app
 		</td>
 	</tr>
 </table>
-
-<p align="center">
-	Made with :heart: by <a href="https://dscvit.com">DSC VIT</a>
-</p>
