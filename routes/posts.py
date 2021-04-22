@@ -1,16 +1,16 @@
 from typing import List
 
-from fastapi import APIRouter, status, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from database.connection import get_db
-from schemas.schemas import Post, DeletePostResponse
+from schemas.schemas import DeletePostResponse, Post
 from utils.post_crud import (
     post_create,
-    posts_get_all,
     post_delete,
     post_get_one,
     post_update,
+    posts_get_all,
 )
 
 router = APIRouter(tags=["posts"])
