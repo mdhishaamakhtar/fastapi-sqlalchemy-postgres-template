@@ -31,7 +31,7 @@ Contributions are welcome.
 - Clone the repo using
 
 ```bash
-git clone https://github.com/mdhishaamakhtar/fastapi-session 
+git clone https://github.com/mdhishaamakhtar/fastapi-sqlalchemy-postgres-template
 ```
 
 - Create a Virtual Environment using
