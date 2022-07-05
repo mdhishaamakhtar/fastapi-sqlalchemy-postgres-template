@@ -49,7 +49,7 @@ starlette==0.13.6
 toml==0.10.2
 typed-ast==1.4.3
 typing-extensions==3.7.4.3
-ujson==3.2.0
+ujson==5.4.0
 urllib3==1.26.5
 uvicorn==0.13.4
 watchgod==0.7
