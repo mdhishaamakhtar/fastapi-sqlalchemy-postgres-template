@@ -1,25 +1,31 @@
-<p align="center">
-<img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FAST API"/>
-<h2 align="center"> FastAPI Template </h2>
-<h4 align="center"> A template for beginners </h4>
+# FastAPI SQLAlchemy PostgreSQL Template
 
----
-## About
-This is a beginner-friendly template for getting started with FastAPI and SQLAlchemy.
+Minimal starter template for a CRUD API with FastAPI + SQLAlchemy + PostgreSQL.
+
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.135-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Pytest](https://img.shields.io/badge/Pytest-9.0-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)](https://docs.pytest.org/)
 
 ## Features
-- [x] Database connection using SQLAlchemy
-- [x] FastAPI server
-- [x] Unit testing with PyTest
-- [x] Basic CRUD for posts
+
+- FastAPI app with CORS enabled
+- SQLAlchemy ORM integration
+- Postgres-ready configuration via `DATABASE_URL`
+- CRUD endpoints for `posts`
+- Pytest suite (DB mocked for local test runs)
+- Docker + Docker Compose local setup
 
 ## Requirements
+
 - Python 3.10+
 - `pip`
-- PostgreSQL database
+- PostgreSQL (only needed when running app without Docker)
 
-## Setup
-1. Create and activate a virtual environment:
+## Local Setup (Without Docker)
+
+1. Create and activate venv:
 
 ```bash
 python3 -m venv .venv
@@ -32,58 +38,56 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Set environment variables:
-
-| Key | Value |
-| --- | --- |
-| `DATABASE_URL` | `postgresql://user:password@host:port/db` |
-
-Example (`.env`):
+3. Add env vars:
 
 ```env
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/fastapi_template
 ```
 
-4. Run the API:
+4. Run API:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-## API Docs (Swagger / OpenAPI)
-Once the app is running locally, open:
-- Swagger UI: `http://127.0.0.1:8000/docs`
-- ReDoc: `http://127.0.0.1:8000/redoc`
-- OpenAPI JSON: `http://127.0.0.1:8000/openapi.json`
+## API Docs
 
-## Running tests
+When the server is running:
+
+- Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- ReDoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+- OpenAPI JSON: [http://127.0.0.1:8000/openapi.json](http://127.0.0.1:8000/openapi.json)
+
+## Tests
+
 ```bash
 pytest
 ```
 
-## Formatting (Black)
-Run formatter:
+## Formatting
 
 ```bash
 black .
 ```
 
-## Docker (Local)
-1. Create `.env` from example:
+## Docker (Recommended for Local Run)
+
+1. Create `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-2. Start API + Postgres with Docker Compose:
+2. Build and start:
 
 ```bash
 docker compose up --build
 ```
 
-3. API will be available at:
-- `http://127.0.0.1:8000`
-- Swagger: `http://127.0.0.1:8000/docs`
-- ReDoc: `http://127.0.0.1:8000/redoc`
+3. Access:
 
-`DATABASE_URL` is passed to the API container from `.env` through `docker-compose.yml`.
+- API: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- Swagger: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- ReDoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+`DATABASE_URL` is passed to the API container from `docker-compose.yml` and can be overridden via `.env`.
