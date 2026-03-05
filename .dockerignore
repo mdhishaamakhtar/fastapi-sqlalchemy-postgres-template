@@ -1,0 +1,11 @@
+.git
+.gitignore
+.venv
+__pycache__
+.pytest_cache
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+tests

@@ -1,4 +1,5 @@
 from typing import List
+from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
@@ -27,14 +28,14 @@ def get_all_posts(db: Session = Depends(get_db)):
 
 
 @router.get("/get/{id}", status_code=status.HTTP_200_OK, response_model=Post)
-def get_one_post(id, db: Session = Depends(get_db)):
+def get_one_post(id: UUID, db: Session = Depends(get_db)):
     return post_get_one(db=db, id=id)
 
 
 @router.delete(
     "/delete/{id}", status_code=status.HTTP_200_OK, response_model=DeletePostResponse
 )
-def delete_post(id, db: Session = Depends(get_db)):
+def delete_post(id: UUID, db: Session = Depends(get_db)):
     delete_status = post_delete(db=db, id=id)
     if delete_status.detail == "Doesnt Exist":
         raise HTTPException(
