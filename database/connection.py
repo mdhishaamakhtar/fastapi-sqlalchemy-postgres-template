@@ -1,9 +1,10 @@
+from typing import cast
+
 from decouple import config
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base, sessionmaker
 
-SQLALCHEMY_DATABASE_URL = config("DATABASE_URL")
+SQLALCHEMY_DATABASE_URL = cast(str, config("DATABASE_URL"))
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

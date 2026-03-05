@@ -1,7 +1,7 @@
 from typing import Optional
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class HealthResponse(BaseModel):
@@ -9,12 +9,11 @@ class HealthResponse(BaseModel):
 
 
 class Post(BaseModel):
-    id: Optional[UUID]
+    id: Optional[UUID] = None
     title: str
     description: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class DeletePostResponse(BaseModel):
@@ -26,5 +25,4 @@ class UpdatePost(BaseModel):
     title: str
     description: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

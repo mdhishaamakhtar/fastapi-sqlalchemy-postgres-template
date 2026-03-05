@@ -1,5 +1,6 @@
 from uuid import UUID
 
+from sqlalchemy import delete, update
 from sqlalchemy.orm import Session
 
 from database.models import Posts
@@ -23,8 +24,12 @@ def post_get_one(db: Session, id: UUID):
 
 
 def post_update(db: Session, post: UpdatePost):
-    update_query = {Posts.title: post.title, Posts.description: post.description}
-    db.query(Posts).filter_by(id=post.id).update(update_query)
+    stmt = (
+        update(Posts)
+        .where(Posts.id == post.id)
+        .values(title=post.title, description=post.description)
+    )
+    _ = db.execute(stmt)
     db.commit()
     return db.query(Posts).filter_by(id=post.id).one()
 
@@ -33,6 +38,7 @@ def post_delete(db: Session, id: UUID):
     post = db.query(Posts).filter_by(id=id).all()
     if not post:
         return DeletePostResponse(detail="Doesnt Exist")
-    db.query(Posts).filter_by(id=id).delete()
+    stmt = delete(Posts).where(Posts.id == id)
+    _ = db.execute(stmt)
     db.commit()
     return DeletePostResponse(detail="Post Deleted")

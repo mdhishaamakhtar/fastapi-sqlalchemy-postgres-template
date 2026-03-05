@@ -1,88 +1,89 @@
 <p align="center">
 <img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FAST API"/>
 <h2 align="center"> FastAPI Template </h2>
-<h4 align="center"> A template for the beginners </h4>
-
+<h4 align="center"> A template for beginners </h4>
 
 ---
 ## About
-This is a beginner's template for getting started with FastAPI.
-It uses SQLAlchemy as the ORM. 
-
-Contributions are welcome. 
+This is a beginner-friendly template for getting started with FastAPI and SQLAlchemy.
 
 ## Features
+- [x] Database connection using SQLAlchemy
+- [x] FastAPI server
+- [x] Unit testing with PyTest
+- [x] Basic CRUD for posts
 
-- [x] Database Connection Using SQLAlchemy
-- [x] FastAPI Server
-- [x] Unit Testing with PyTest
-- [x] Basic CRUD for Posts
+## Requirements
+- Python 3.10+
+- `pip`
+- PostgreSQL database
 
-<br>
-
-## Dependencies
-
-- Python 3.7+
-- Pip
-- Other listed in requirements.txt
-
-## Running
-
-- Clone the repo using
+## Setup
+1. Create and activate a virtual environment:
 
 ```bash
-git clone https://github.com/mdhishaamakhtar/fastapi-sqlalchemy-postgres-template
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-- Create a Virtual Environment using
-
-```bash
-sudo pip install virtualenv
-virtualenv env
-```
-
-- Activate the virtualenv
-
-```bash
-env\Scripts\activate # for windows
-source env/bin/activate # for linux and mac
-```
-
-- Install dependencies
+2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-- Setting up environment variables
+3. Set environment variables:
 
-| Key     | Value |
-| ----------- | ----------- |
-| DATABASE_URL   | postgresql://user:password@host:port/db|
+| Key | Value |
+| --- | --- |
+| `DATABASE_URL` | `postgresql://user:password@host:port/db` |
 
-- To run the project
+Example (`.env`):
 
-```bash
-uvicorn main:app
+```env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/fastapi_template
 ```
 
-## Contributors
+4. Run the API:
 
-<table>
-	<tr align="center">
-		<td>
-		Md Hishaam Akhtar
-		<p align="center">
-			<img src = "https://user-images.githubusercontent.com/58990970/103586688-9cde9700-4f0b-11eb-915c-0d8b9a555159.JPG" width="150" height="150" alt="Md Hishaam Akhtar">
-		</p>
-			<p align="center">
-				<a href = "https://github.com/mdhishaamakhtar">
-					<img src = "https://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
-				</a>
-				<a href = "https://www.linkedin.com/in/mdhishaamakhtar">
-					<img src = "https://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
-				</a>
-			</p>
-		</td>
-	</tr>
-</table>
+```bash
+uvicorn main:app --reload
+```
+
+## API Docs (Swagger / OpenAPI)
+Once the app is running locally, open:
+- Swagger UI: `http://127.0.0.1:8000/docs`
+- ReDoc: `http://127.0.0.1:8000/redoc`
+- OpenAPI JSON: `http://127.0.0.1:8000/openapi.json`
+
+## Running tests
+```bash
+pytest
+```
+
+## Formatting (Black)
+Run formatter:
+
+```bash
+black .
+```
+
+## Docker (Local)
+1. Create `.env` from example:
+
+```bash
+cp .env.example .env
+```
+
+2. Start API + Postgres with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+3. API will be available at:
+- `http://127.0.0.1:8000`
+- Swagger: `http://127.0.0.1:8000/docs`
+- ReDoc: `http://127.0.0.1:8000/redoc`
+
+`DATABASE_URL` is passed to the API container from `.env` through `docker-compose.yml`.
