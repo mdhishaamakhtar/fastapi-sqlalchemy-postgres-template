@@ -26,7 +26,7 @@ pytest==9.0.2
 python-decouple==3.8
 python-multipart==0.0.22
 pytokens==0.4.1
-starlette==0.52.1
+starlette==1.0.1
 tomli==2.4.0
 typing-inspection==0.4.2
 typing_extensions==4.15.0
