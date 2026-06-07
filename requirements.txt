@@ -1,4 +1,4 @@
-Pygments==2.19.2
+Pygments==2.20.0
 SQLAlchemy==2.0.48
 annotated-doc==0.0.4
 annotated-types==0.7.0
